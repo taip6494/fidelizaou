@@ -6,5 +6,3 @@ include('script/script_bootstrap.php');
 include('vues/footer.php');
 
 ?>
-
-
