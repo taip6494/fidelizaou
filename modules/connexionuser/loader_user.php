@@ -67,7 +67,7 @@
 
 <div id="loader"></div>
 <div id="connexion">
-<h3>Connexion réussi! Nous allons vous redirez dans votre session merci de patienter</h3>
+<h3>Connexion réussi! Nous allons vous redirigez dans votre session merci de patienter</h3>
 </div>
 
 <?php

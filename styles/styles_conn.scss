@@ -1,6 +1,21 @@
 .form{
     background-image: url('../images/rivver.jpg');
 }
+.conn{
+    margin-top: 10%;
+    text-align: center;
+    color: white;
+}
+.form_conn{
+    color: white;
+    width: 30%;
+    height: auto;
+    align-items: center;
+}
+.body_form{
+    background-color: grey;
+}
+
 body{
     background-color: #080710;
 }
@@ -36,7 +51,7 @@ body{
     bottom: -80px;
 }
 form{
-    height: auto;
+    // height: 520px;
     width: 400px;
     background-color: rgba(255,255,255,0.13);
     position: absolute;
@@ -56,6 +71,7 @@ form *{
     outline: none;
     border: none;
 }
+
 form h3{
     font-size: 32px;
     font-weight: 500;
@@ -94,12 +110,27 @@ button{
     border-radius: 5px;
     cursor: pointer;
 }
-
-img{
-    align-items: center;
-    margin-bottom: 10px;
+select{
+    display: block;
+    height: 50px;
+    width: 100%;
+    background-color: rgba(255,255,255,0.07);
+    border-radius: 3px;
+    padding: 0 10px;
+    margin-top: 8px;
+    font-size: 14px;
+    font-weight: 300;
 }
-.titre_conn{
-    margin-top: 40px;
-    margin-bottom: 40px;
+select option{
+    color:black;
+}
+ a{
+    text-decoration:none; 
+    // text-align:center;
+
+}
+.seConnecter a{
+  text-align : center;
+  display : block;
+  margin-top:5px;
 }
