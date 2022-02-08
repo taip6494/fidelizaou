@@ -24,7 +24,7 @@ if (isset($_POST['submitBtnLogin'])) {
         $_SESSION['sess_user_dateN'] = $row['Date_naissance'];
         $_SESSION['sess_user_codeP'] = $row['Code_postal'];
         $_SESSION['sess_user_civilite'] = $row['Civilité'];
-        header('location:http://localhost/fidelizaou/home.php');
+        header('location:http://localhost/fidelizaou/modules/connexionuser/loader_user.php');
       } else {
         $msg = '<div class="alert alert-danger" role="alert">
             Numéro ou mot de passe incorrect
