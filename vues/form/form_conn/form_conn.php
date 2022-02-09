@@ -15,6 +15,5 @@ include("C:/xampp/htdocs/fidelizaou/modules/connexionuser/requete_login_utilisat
         <input type="password" placeholder="Mot de passe" name="Mdp">
 </div>
 <button type="submit" class="btn btn-primary" name="submitBtnLogin">Connexion</button>
-<p class='seConnecter'> <a  href="inscription.php">inscription</a></p>
     </form>
 </div>

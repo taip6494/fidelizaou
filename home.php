@@ -1,1 +1,7 @@
-<h1>Solut</h1>
+<?php
+include('vues/head_dash.php');
+include('vues/dashboard/home.php');
+include('vues/footer.php');
+include('script/script_bootstrap.php');
+
+?>
