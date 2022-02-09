@@ -62,8 +62,10 @@
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">
-                        <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                        <div class="small">Session de :</div>
+                        <?php 
+                        echo $_SESSION['sess_user_name']. ' ' .$_SESSION['sess_user_prenom'];
+                        ?>
                     </div>
                 </nav>
             </div>
