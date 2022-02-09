@@ -10,7 +10,8 @@
     <style>
         #connexion{
             position: absolute;
-            left: 25%;
+            text-align: center;
+            left: 35%;
   top: 60%;
   z-index: 1;
   max-width: auto;
@@ -67,7 +68,7 @@
 
 <div id="loader"></div>
 <div id="connexion">
-<h3>Connexion réussi! Nous allons vous redirigez dans votre session merci de patienter</h3>
+<h3>Connexion réussi!</h3>
 </div>
 
 <?php
