@@ -2,7 +2,7 @@
 include("C:/xampp/htdocs/gestion_stock/modules/connexiondb/connexiondb.php");
 include('C:/xampp/htdocs/fidelizaou/modules/info_user.php/requete_info_user.php');
 ?>
-<?= @$msgmodification ?> 
+
 
 <?php $row = $stmt->fetch(PDO::FETCH_ASSOC) ?>
 <form action="http://localhost/fidelizaou/modules/modification/modification_user.php" method="POST">
@@ -41,7 +41,7 @@ include('C:/xampp/htdocs/fidelizaou/modules/info_user.php/requete_info_user.php'
 
   <!-- Email input -->
   <div class="form-outline mb-4">
-    <input type="text" name="Date_naissance" class="form-control" value="<?php echo htmlspecialchars($row['Date_naissance']); ?>" />
+    <input type="date" name="Date_naissance" class="form-control" value="<?php echo htmlspecialchars($row['Date_naissance']); ?>" />
     <label class="form-label" for="form6Example5">Date de naissance</label>
   </div>
 
