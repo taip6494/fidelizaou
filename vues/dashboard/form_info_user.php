@@ -1,9 +1,13 @@
 <?php
+include("C:/xampp/htdocs/gestion_stock/modules/connexiondb/connexiondb.php");
 include('C:/xampp/htdocs/fidelizaou/modules/info_user.php/requete_info_user.php');
 ?>
-<?php while ($row = $stmt->fetch(PDO::FETCH_ASSOC)) : ?>
-<form>
+<?= @$msgmodification ?> 
+
+<?php $row = $stmt->fetch(PDO::FETCH_ASSOC) ?>
+<form action="http://localhost/fidelizaou/modules/modification/modification_user.php" method="POST">
   <!-- 2 column grid layout with text inputs for the first and last names -->
+    <input type="hidden" name="idUtilisateur" class="form-control" value="<?php echo htmlspecialchars($row['idUtilisateur']); ?>" />
     <!-- Email input -->
     <div class="form-outline mb-4">
     <input type="text" name="Civilite" class="form-control" value="<?php echo htmlspecialchars($row['Civilite']); ?>" />
@@ -31,7 +35,7 @@ include('C:/xampp/htdocs/fidelizaou/modules/info_user.php/requete_info_user.php'
 
   <!-- Text input -->
   <div class="form-outline mb-4">
-    <input type="text" name="Numero_tel" class="form-control" value="<?php echo htmlspecialchars($row['Numero_tel']); ?>" />
+    <input type="text" name="Numero_tel" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" class="form-control" value="<?php echo htmlspecialchars($row['Numero_tel']); ?>" />
     <label class="form-label" for="form6Example4">Numero de téléphone</label>
   </div>
 
@@ -43,11 +47,10 @@ include('C:/xampp/htdocs/fidelizaou/modules/info_user.php/requete_info_user.php'
 
   <!-- Number input -->
   <div class="form-outline mb-4">
-    <input type="text" name="Code_postal" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" class="form-control" value="<?php echo htmlspecialchars($row['Code_postal']); ?>" />
-    <label class="form-label" for="form6Example6">Phone</label>
+    <input type="text" name="Code_postal"  class="form-control" value="<?php echo htmlspecialchars($row['Code_postal']); ?>" />
+    <label class="form-label" for="form6Example6">Code Postale</label>
   </div>
 
   <!-- Submit button -->
-  <center><button type="submit" class="btn btn-primary btn-block mb-4">Modifier</button></center>
+  <center><button type="submit" class="btn btn-primary btn-block mb-4" name="submitBtnModifier">Modifier</button></center>
 </form>
-<?php endwhile; ?>

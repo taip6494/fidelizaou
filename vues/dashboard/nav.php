@@ -1,9 +1,10 @@
-<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+<nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark" id="nav">
             <!-- Navbar Brand-->
-           <img class="logo_nav" src="http://localhost/fidelizaou/images/logo4.png"/>
+            <p class="logo"><span class="span1">Fideliz</span><span class="span2">'@</span><span class="span3">ou</span></p><a class="logo_nav" src="http://localhost/fidelizaou/images/logo4.png"></a>
+            
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
-            <!-- Navbar Search-->
+           
             <form class="d-none d-md-inline-block form-inline ms-auto me-0 me-md-3 my-2 my-md-0">
                 <div class="input-group">
                     <input class="form-control" type="text" placeholder="Search for..." aria-label="Search for..." aria-describedby="btnNavbarSearch" />

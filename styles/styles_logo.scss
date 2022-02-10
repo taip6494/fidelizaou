@@ -1,7 +1,5 @@
-.logo_nav{
-    width: 20vh;
-    height: auto;
-}
+@import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
+
 .logo_logout{
     width: 4vh;
     height: auto;
@@ -14,4 +12,23 @@
         border-radius: 30px;
         align-items: center;
     }
+.logo{
+    margin-top: 4vh;
+    font-family: 'Satisfy', cursive;
+    text-decoration: none;
+    color: white;
+    font-size: 6vh;
+    height: auto;
+    margin-left: 2vh;
+    text-shadow: 2px 2px 5px black;
+}
+.span1{
+    color:white;
+}
 
+.span2{
+    color:red;
+}
+.span3{
+    color:yellow;
+}
