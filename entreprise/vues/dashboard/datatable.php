@@ -2,7 +2,7 @@
 include("C:/xampp/htdocs/fidelizaou/entreprise/modules/affiche_client/requete_aff_client.php")
 ?>
 <div class="card mb-4">
-<?= @$msg ?>
+
                             <div class="card-header">
                                 <i class="fas fa-table me-1"></i>
                                détails 1

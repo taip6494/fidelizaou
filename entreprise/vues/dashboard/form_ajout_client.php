@@ -3,15 +3,9 @@ include("C:/xampp/htdocs/fidelizaou/modules/connexiondb/connexiondb.php");
 //include("C:/xampp/htdocs/fidelizaou/entreprise/modules/ajout_client/add_client.php");
 ?>
 <!-- Formulaire ajout client -->
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Ajout client</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body">
-      <form action="C:/xampp/htdocs/fidelizaou/entreprise/modules/ajout_client/add_client.php" method="POST" >
+<?= @$msg ?>
+
+<form action="http://localhost/fidelizaou/entreprise/modules/ajout_client/add_client.php" method="POST" >
         <select class="form-select" name="Civilite">
             <option selected>Genre</option>
             <option value="Monsieur">Monsieur</option>
@@ -38,12 +32,6 @@ include("C:/xampp/htdocs/fidelizaou/modules/connexiondb/connexiondb.php");
             <input type="text" class="form-control"  name="Code_postal"  placeholder="Code Postal">
         </div>
         
-
-      <div class="modal-footer">
-      <button type="submit" class="btn btn-primary" >Ajouter</button>
+      <button type="submit" class="btn btn-primary" name="submitBtnAjout">Ajouter</button>
         
-      </div>
       </form>
-    </div>
-  </div>
-</div>

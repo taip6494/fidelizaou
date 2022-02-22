@@ -9,15 +9,15 @@
             <div id="layoutSidenav_content">
                 <main>
                     <div class="container-fluid px-4">
-                        <h1 class="mt-4">Mes informations</h1>
+                        <h1 class="mt-4">Inscription client</h1>
                         <ol class="breadcrumb mb-4">
-                            <li class="breadcrumb-item active">Détails</li>
+                            <li class="breadcrumb-item active">Formumlaire</li>
                         </ol>
 
                         <?php
                             //include('cards.php');
                             //include('area_bar.php');
-                            include('datatable.php');
+                            include('form_ajout_client.php');
                         ?>
                         
                     </div>

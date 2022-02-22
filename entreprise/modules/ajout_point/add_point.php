@@ -11,6 +11,7 @@ $Date_naissance = trim($_POST['Date_naissance']);
 $Code_postal = trim($_POST['Code_postal']);
 $Numero_tel = trim($_POST['Numero_tel']);
 
+    $Numero_tel = trim($_POST['Numero_tel']);
 
     $stmt = $db->prepare("SELECT * FROM utilisateur WHERE Numero_tel=?");
     $stmt->execute([$Numero_tel]); 
@@ -39,7 +40,9 @@ $Numero_tel = trim($_POST['Numero_tel']);
                 $stmt->execute();
                 if ($stmt == true) {
         
-        $msg = "Client bien ajouter";
+        $msg = '<div class="alert alert-sucess" role="alert">
+       Client ajouter.
+       </div>';
         }
         
         
