@@ -11,8 +11,9 @@
                             <a class="nav-link collapsed" href="http://localhost/fidelizaou/entreprise/ajout_client.php">
                                 Ajouter un nouveu client
                             </a>
-                            <a class="nav-link collapsed" href="http://localhost/fidelizaou/entreprise/ajout_point.php" data-bs-toggle="collapse" data-bs-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts">
+                            <a class="nav-link collapsed" href="http://localhost/fidelizaou/entreprise/ajout_point.php">
                                 Créditer des point de fidéliter
+                              
                             </a>
                         </div>
                     </div>
@@ -21,7 +22,7 @@
                         <?php 
                         echo $_SESSION['sess_user_Role']. ' ' .$_SESSION['sess_user_nom'];
                         ?>
-                        <a href="http://localhost/fidelizaou/modules/deconnexion/logout.php"><img class="logo_logout" src="http://localhost/fidelizaou/images/logout.svg"/></a>
+                        <a href="http://localhost/fidelizaou/entreprise/modules/deconnexion/logout.php"><img class="logo_logout" src="http://localhost/fidelizaou/images/logout.svg"/></a>
                     </div>
                 </nav>
             </div>

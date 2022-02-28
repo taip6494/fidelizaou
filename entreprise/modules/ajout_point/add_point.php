@@ -1,60 +1,52 @@
 <?php
-
+//connexion base de données
 include("C:/xampp/htdocs/fidelizaou/modules/connexiondb/connexiondb.php");
+//Intilser la variable $msg 
 $msg = "";
-$Civilite = trim($_POST['Civilite']);
-$Nom = trim($_POST['Nom']);
-$Prenom = trim($_POST['Prenom']);
-$Adresse_mail = trim($_POST['Adresse_mail']);
-$Numero_tel = trim($_POST['Numero_tel']);
-$Date_naissance = trim($_POST['Date_naissance']);
-$Code_postal = trim($_POST['Code_postal']);
-$Numero_tel = trim($_POST['Numero_tel']);
+if (isset($_POST['submitBtn'])) {
+//Récolte des informations par le formulaire (fidelizaou\entreprise\vues\ajout_point\form_ajout_point.php)
+$Numero_tel = trim($_POST['Num_tel']);
+$point = trim($_POST['point']);
+    //Trouver l'utilisateur (id) avec le numéro téléphone 
+    $stmt = $db->prepare("SELECT * FROM utilisateur WHERE Numero_tel=:Numero_tel");
+    $stmt->execute([$Numero_tel]);
+    $row = $stmt->fetch(PDO::FETCH_ASSOC);
+    $idUtilisateur = $row['idUtilisateur'];
+    // Afficher idUtilisateur
+    //echo $idUtilisateur;
 
-    $Numero_tel = trim($_POST['Numero_tel']);
-
-    $stmt = $db->prepare("SELECT * FROM utilisateur WHERE Numero_tel=?");
-    $stmt->execute([$Numero_tel]); 
-    $user = $stmt->fetch();
-    if ($user) {
-      echo '<div class="alert alert-danger" role="alert">
-     Ce numéro de téléphone existe déja.
-     <a class="nav-link" href="http://localhost/fidelizaou/entreprise/ajout_client.php">
-     <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
-     Resumer
- </a>
-    </div>';
-    } else {
-
-            $sql = "INSERT INTO utilisateur (Nom, Prenom, Adresse_mail, Numero_tel, Date_naissance, Code_postal, Civilite) Values (:Nom, :Prenom, :Adresse_mail, :Numero_tel, :Date_naissance, :Code_postal, :Civilite)";
+    //Date du jour
+    $date = date('y-m-d');
+    //echo $date;
+    //Insertion des point client avec idUtilisateur
+     $sql = "INSERT INTO historique_achat (IdAchat,IdUtilisateur,Nb_point,Date_achat) values ('',:idUtilisateur,:Nb_point,:Date_achat)";
             try {
-            
                 $stmt = $db->prepare($sql);
-                $stmt->bindValue('Civilite', $Civilite, PDO::PARAM_STR);
-                $stmt->bindValue('Nom', $Nom, PDO::PARAM_STR);
-                $stmt->bindValue('Prenom', $Prenom, PDO::PARAM_STR);
-                $stmt->bindValue('Adresse_mail', $Adresse_mail, PDO::PARAM_STR);
-                $stmt->bindValue('Numero_tel', $Numero_tel, PDO::PARAM_STR);
-                $stmt->bindValue('Date_naissance', $Date_naissance, PDO::PARAM_STR);
-                $stmt->bindValue('Code_postal', $Code_postal, PDO::PARAM_STR);
+                $stmt->bindValue('idUtilisateur', $idUtilisateur, PDO::PARAM_STR);
+                $stmt->bindValue('Nb_point', $point, PDO::PARAM_STR);
+                $stmt->bindValue('Date_achat', $date, PDO::PARAM_STR);
                 $stmt->execute();
                 if ($stmt == true) {
         
-        $msg = '<div class="alert alert-sucess" role="alert">
-       Client ajouter.
-       </div>';
+        $msg = '<div class="alert alert-success" role="alert"> Les point sont ajouter au numéro : '. $Numero_tel.' Point Ajouter est de '. $point .'</div>';
+        }else{
+            $msg = '<div id="ok" class="alert alert-success" role="alert">
+            A simple success alert—check it out!
+          </div>
+          ';
         }
         
+        //var_dump($sql);
         
         if ($stmt === false) {
         die("Erreur");
         }
         } catch (PDOException $e) {
         }
+    }
         
-        
-        
-    } 
+    
+    
     
 
 

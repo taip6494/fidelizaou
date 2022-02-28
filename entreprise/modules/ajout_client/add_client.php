@@ -12,6 +12,12 @@ $Code_postal = trim($_POST['Code_postal']);
 $Numero_tel = trim($_POST['Numero_tel']);
 
 
+$bytes = openssl_random_pseudo_bytes(4);
+$pass = bin2hex($bytes);
+echo $pass .  ' ';
+$password = password_hash($pass, PASSWORD_DEFAULT);
+echo $password;
+
     $stmt = $db->prepare("SELECT * FROM utilisateur WHERE Numero_tel=?");
     $stmt->execute([$Numero_tel]); 
     $user = $stmt->fetch();
@@ -48,14 +54,66 @@ $Numero_tel = trim($_POST['Numero_tel']);
         }
         } catch (PDOException $e) {
         }
+
+        $recup = "SELECT * FROM utilisateur ORDER BY idUtilisateur DESC LIMIT 1";
+        try{
+            $stmt = $db->query($recup);
+            
+            if ($stmt == true) {
+        
+                $msg = "bien récupérer";
+                }
+
+        }catch(PDOException $e){
+
+        }
+
+        $row = $stmt->fetch(PDO::FETCH_ASSOC);
+
+       
+        //var_dump($row);
+
+       echo  $idutilisateur = $row['idUtilisateur'];
+
+
+        $insert = "INSERT INTO connexion (idUtilisateur, Mdp) Values (:idUtilisateur, :Mdp)";
+        try {
+        
+            $stmt = $db->prepare($insert);
+            $stmt->bindParam('idUtilisateur', $idutilisateur, PDO::PARAM_STR);
+            $stmt->bindParam('Mdp', $password, PDO::PARAM_STR);
+            $stmt->execute();
+            if ($stmt == true) {
+          
+              $msg = "Aucun résultat pour votre recherche";
+            }
+          
+          
+            if ($stmt === false) {
+              die("Erreur");
+            }
+          } catch (PDOException $e) {
+          }
         
         
         
     } 
     
+echo $Adresse_mail ;
+    
 
 
+    $dest =  "eclapier@msn.com";
+    $sujet = "Mot de passe fidelizaou";
+    $corp = "Bonjour votre mot de passe est $pass";
+    $headers = "From: palisseauthomas@gmail.com";
+    if (mail($dest, $sujet, $corp, $headers)) {
+      echo "Email envoyé avec succès à $dest ...";
+    } else {
+      echo "Échec de l'envoi de l'email...";
+    }
 
+    
 
 
 ?>

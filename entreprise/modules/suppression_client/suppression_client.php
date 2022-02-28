@@ -1,7 +1,9 @@
 <?php
 
 require_once("C:/xampp/htdocs/fidelizaou/modules/connexiondb/connexiondb.php");
+// récupération de idUtiliateur
 $idUtilisateur = $_GET['idUtilisateur'];
+// Insertion historique achat dans archives
 $sql = "INSERT INTO archives SELECT * FROM historique_achat WHERE idUtilisateur = :idUtilisateur ";
 try {
 
@@ -96,6 +98,6 @@ try {
 
 <?php
 
-//header('location:http://localhost/fidelizaou/entreprise/home.php');
+header('location:http://localhost/fidelizaou/entreprise/Ajout_client.php');
 
 ?>
