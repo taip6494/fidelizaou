@@ -1,38 +1,16 @@
 <?php
-include("C:/xampp/htdocs/fidelizaou/modules/connexiondb/connexiondb.php");
-//include("C:/xampp/htdocs/fidelizaou/entreprise/modules/ajout_client/add_client.php");
+include("C:/xampp/htdocs/fidelizaou/entreprise/modules/ajout_point/add_point.php");
 ?>
-<!-- Formulaire ajout client -->
 <?= @$msg ?>
-<?= @$msg_existe ?>
-
-<form action="http://localhost/fidelizaou/entreprise/modules/ajout_client/add_client.php" method="POST" >
-        <select class="form-select" name="Civilite">
-            <option selected>Genre</option>
-            <option value="Monsieur">Monsieur</option>
-            <option value="Madame">Madame</option>
-            <option value="Autre">Autre</option>
-        </select>
-</br>
+<form method="POST" >
         <div class="mb-3">
-            <input type="text" class="form-control" name="Nom" placeholder="Nom">
+            <input type="text" pattern="^((\+\d{1,3}(-| )?\(?\d\)?(-| )?\d{1,5})|(\(?\d{2,6}\)?))(-| )?(\d{3,4})(-| )?(\d{4})(( x| ext)\d{1,5}){0,1}$" class="form-control" name="Num_tel" placeholder="numero_tel">
         </div>
         <div class="mb-3">
-            <input type="text" class="form-control" name="Prenom"  placeholder="Prenom">
+            <input type="text"  name="point" placeholder="nombredepoint" class="form-control" >
         </div>
-        <div class="mb-3">
-            <input type="email" class="form-control" name="Adresse_mail" placeholder="Adresse-mail">
-        </div>
-        <div class="mb-3">
-            <input type="text" class="form-control" name="Numero_tel" placeholder="Numero de téléphone">
-        </div>
-        <div class="mb-3">
-            <input type="date" class="form-control" name="Date_naissance" placeholder="Date de naissance">
-        </div>
-        <div class="mb-3">
-            <input type="text" class="form-control"  name="Code_postal"  placeholder="Code Postal">
-        </div>
-        
-      <button type="submit" class="btn btn-primary" name="submitBtnAjout">Ajouter</button>
+      <button type="submit" class="btn btn-primary" name="submitBtn">Ajouter</button>
         
       </form>
+      
+ 
