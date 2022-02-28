@@ -11,10 +11,12 @@ $Date_naissance = trim($_POST['Date_naissance']);
 $Code_postal = trim($_POST['Code_postal']);
 $Numero_tel = trim($_POST['Numero_tel']);
 
-
+//openssl_random_pseudo_bytes — Génère une chaine pseudo-aléatoire d'octets
 $bytes = openssl_random_pseudo_bytes(4);
+//Convertit des données binaires en représentation hexadécimale
 $pass = bin2hex($bytes);
 echo $pass .  ' ';
+//password_hash — Crée une clé de hachage pour un mot de passe
 $password = password_hash($pass, PASSWORD_DEFAULT);
 echo $password;
 
@@ -103,7 +105,7 @@ echo $Adresse_mail ;
     
 
 
-    $dest =  "eclapier@msn.com";
+    $dest =  $Adresse_mail;
     $sujet = "Mot de passe fidelizaou";
     $corp = "Bonjour votre mot de passe est $pass";
     $headers = "From: palisseauthomas@gmail.com";
